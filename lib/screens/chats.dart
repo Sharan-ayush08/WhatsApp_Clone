@@ -45,7 +45,7 @@ class _ChatsState extends State<Chats> {
               ),
             )
           ]),
-          // backgroundColor: Colors.green[700],
+          backgroundColor: Colors.teal[900],
           title: Text("WhatsApp"),
           actions: [
             IconButton(
