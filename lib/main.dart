@@ -18,7 +18,7 @@ class Clone extends StatelessWidget {
           // ignore: deprecated_member_use
           accentColor: Colors.green),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/",
+      initialRoute: "/chats",
       routes: {
         "/": (context) => WelcomePage(),
         "/user": (context) => UserData(),
