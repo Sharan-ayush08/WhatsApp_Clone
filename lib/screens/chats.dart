@@ -11,15 +11,32 @@ class Chats extends StatefulWidget {
   _ChatsState createState() => _ChatsState();
 }
 
-class _ChatsState extends State<Chats> {
+class _ChatsState extends State<Chats> with SingleTickerProviderStateMixin {
+  TabController? _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 4, vsync: this, initialIndex: 1);
+    _tabController!.addListener(_handleTabIndex);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _tabController!.removeListener(_handleTabIndex);
+    _tabController!.dispose();
+    super.dispose();
+  }
+
+  void _handleTabIndex() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      initialIndex: 1,
-      length: 4,
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
-          bottom: TabBar(tabs: [
+          bottom: TabBar(controller: _tabController, tabs: [
             Padding(
               padding: const EdgeInsets.only(top: 12),
               child: Tab(
@@ -88,6 +105,7 @@ class _ChatsState extends State<Chats> {
           ],
         ),
         body: TabBarView(
+          controller: _tabController,
           children: [
             CameraScreen(),
             ChatScreen(),
@@ -95,17 +113,34 @@ class _ChatsState extends State<Chats> {
             CallsScreen(),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Color(0xff075E54),
-          child: Icon(
-            Icons.message,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            print("DJ BRAVO");
-          },
-        ),
-      ),
-    );
+        floatingActionButton:
+            // FloatingActionButton(
+            //   backgroundColor: Color(0xff075E54),
+            //   child: Icon(
+            //     Icons.message,
+            //     color: Colors.white,
+            //   ),
+            //   onPressed: () {
+            //     print("DJ BRAVO");
+            //   },
+            // ),
+            bottomButton());
+  }
+
+  Widget bottomButton() {
+    return _tabController?.index == 1
+        ? FloatingActionButton(
+            onPressed: null,
+            backgroundColor: Colors.green,
+            child: Icon(
+              Icons.message,
+              size: 20,
+            ),
+          )
+        : FloatingActionButton(
+            onPressed: null,
+            backgroundColor: Colors.green,
+            child: Icon(Icons.camera),
+          );
   }
 }
