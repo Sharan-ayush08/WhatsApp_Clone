@@ -13,11 +13,29 @@ class Chats extends StatefulWidget {
 
 class _ChatsState extends State<Chats> with SingleTickerProviderStateMixin {
   TabController? _tabController;
+  //this is used to detect when tO SHOW our FAB
+  bool showFAB = false;
+  bool isCallsPage = false;
 
   @override
   void initState() {
     _tabController = TabController(length: 4, vsync: this, initialIndex: 1);
-    _tabController!.addListener(_handleTabIndex);
+    _tabController!.addListener(() {
+      if (_tabController?.index == 1) {
+        showFAB = true;
+        isCallsPage = false;
+      } else if (_tabController?.index == 2) {
+        showFAB = true;
+        isCallsPage = false;
+      } else if (_tabController?.index == 3) {
+        showFAB = true;
+        isCallsPage = true;
+      } else {
+        showFAB = false;
+        isCallsPage = false;
+      }
+      setState(() {});
+    });
     super.initState();
   }
 
@@ -113,34 +131,16 @@ class _ChatsState extends State<Chats> with SingleTickerProviderStateMixin {
             CallsScreen(),
           ],
         ),
-        floatingActionButton:
-            // FloatingActionButton(
-            //   backgroundColor: Color(0xff075E54),
-            //   child: Icon(
-            //     Icons.message,
-            //     color: Colors.white,
-            //   ),
-            //   onPressed: () {
-            //     print("DJ BRAVO");
-            //   },
-            // ),
-            bottomButton());
-  }
-
-  Widget bottomButton() {
-    return _tabController?.index == 1
-        ? FloatingActionButton(
-            onPressed: null,
-            backgroundColor: Colors.green,
-            child: Icon(
-              Icons.message,
-              size: 20,
-            ),
-          )
-        : FloatingActionButton(
-            onPressed: null,
-            backgroundColor: Colors.green,
-            child: Icon(Icons.camera),
-          );
+        floatingActionButton: showFAB
+            ? FloatingActionButton(
+                child: isCallsPage
+                    ? Icon(
+                        Icons.add_call,
+                        color: Colors.white,
+                      )
+                    : Icon(Icons.message),
+                onPressed: () => print("fab clicked"),
+              )
+            : Container());
   }
 }
