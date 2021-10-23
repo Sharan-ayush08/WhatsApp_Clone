@@ -1,9 +1,13 @@
+import 'package:camera/camera.dart';
 import 'package:clone_application/screens/chats.dart';
+import 'package:clone_application/screens/pages/camera_screen.dart';
 import 'package:clone_application/screens/user_data.dart';
 import 'package:clone_application/screens/welcome_page.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(Clone());
 }
 
