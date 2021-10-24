@@ -24,6 +24,7 @@ class _CameraScreenState extends State<CameraScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        fit: StackFit.expand,
         children: [
           FutureBuilder(
             future: cameraValue,
@@ -40,11 +41,13 @@ class _CameraScreenState extends State<CameraScreen> {
           Positioned(
             bottom: 0,
             child: Container(
+              width: 400,
               color: Colors.black,
-              width: double.infinity,
               child: Column(
                 children: [
                   Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       IconButton(
                         onPressed: () {},
@@ -53,8 +56,33 @@ class _CameraScreenState extends State<CameraScreen> {
                           color: Colors.white,
                           size: 28,
                         ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 30),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.panorama_fish_eye,
+                            color: Colors.white,
+                            size: 70,
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.flip_camera_ios,
+                          color: Colors.white,
+                          size: 28,
+                        ),
                       )
                     ],
+                  ),
+                  SizedBox(height: 35),
+                  Text(
+                    "Hold for Video, tap for photo",
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
                   )
                 ],
               ),
