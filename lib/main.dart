@@ -1,8 +1,8 @@
 import 'package:camera/camera.dart';
-import 'package:clone_application/screens/chats.dart';
-import 'package:clone_application/screens/pages/camera_screen.dart';
-import 'package:clone_application/screens/user_data.dart';
-import 'package:clone_application/screens/welcome_page.dart';
+import 'package:clone_application/screens/pages/chats.dart';
+import 'package:clone_application/screens/Tabs/camera_screen.dart';
+import 'package:clone_application/screens/pages/user_data.dart';
+import 'package:clone_application/screens/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {

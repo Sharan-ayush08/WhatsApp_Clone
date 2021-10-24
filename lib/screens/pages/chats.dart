@@ -1,7 +1,7 @@
-import 'package:clone_application/screens/pages/chat_screen.dart';
-import 'package:clone_application/screens/pages/calls_screen.dart';
-import 'package:clone_application/screens/pages/camera_screen.dart';
-import 'package:clone_application/screens/pages/status_screen.dart';
+import 'package:clone_application/screens/Tabs/chat_screen.dart';
+import 'package:clone_application/screens/Tabs/calls_screen.dart';
+import 'package:clone_application/screens/Tabs/camera_screen.dart';
+import 'package:clone_application/screens/Tabs/status_screen.dart';
 import 'package:flutter/material.dart';
 
 class Chats extends StatefulWidget {

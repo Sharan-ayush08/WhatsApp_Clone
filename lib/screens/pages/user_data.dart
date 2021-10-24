@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:clone_application/screens/chats.dart';
+import 'package:clone_application/screens/pages/chats.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 

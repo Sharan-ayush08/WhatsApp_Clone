@@ -1,4 +1,4 @@
-import 'package:clone_application/screens/user_data.dart';
+import 'package:clone_application/screens/pages/user_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
