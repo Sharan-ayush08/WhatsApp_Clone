@@ -42,6 +42,8 @@ class PhoneDetails extends StatelessWidget {
   }
 
   Widget countryCard() {
-    return Container();
+    return Container(
+      decoration: BoxDecoration(border: Border.all()),
+    );
   }
 }
