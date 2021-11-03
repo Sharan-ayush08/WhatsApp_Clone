@@ -1,4 +1,4 @@
-import 'package:clone_application/screens/pages/enter_phone.dart';
+import 'package:clone_application/screens/pages/user_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -55,7 +55,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 elevation: 12,
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => PhoneDetails()));
+                      MaterialPageRoute(builder: (context) => UserData()));
                 },
                 child: Text(
                   "AGREE AND CONTINUE",
